@@ -4,12 +4,12 @@
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, Consolas, monospace;
 
-  --color-bg: #08060d;
-  --color-surface: #0f0d17;
-  --color-border: #232030;
-  --color-text: #d4d2db;
-  --color-text-muted: #8b8797;
-  --color-heading: #f7f6f9;
+  --color-bg: #0a0e16;
+  --color-surface: #111827;
+  --color-border: #1f2937;
+  --color-text: #cbd5e1;
+  --color-text-muted: #7c8aa0;
+  --color-heading: #f1f5f9;
   --color-accent: #aa3bff;
   --color-accent-soft: #c084fc;
   --color-accent-bg: rgba(170, 59, 255, 0.12);
@@ -21,7 +21,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

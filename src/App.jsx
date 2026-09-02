@@ -10,7 +10,7 @@ function App() {
   useLenis()
 
   return (
-    <div className="bg-bg text-text">
+    <div className="text-text">
       <Navbar />
       <main>
         <Hero />

@@ -6,11 +6,11 @@ function DistortedBlob() {
   return (
     <Float speed={1.5} rotationIntensity={0.6} floatIntensity={1.2}>
       <mesh position={[2.6, 0.2, 0]} scale={1.5}>
-        <icosahedronGeometry args={[1, 4]} />
+        <sphereGeometry args={[1, 128, 128]} />
         <MeshDistortMaterial
           color="#aa3bff"
           attach="material"
-          distort={0.45}
+          distort={0.35}
           speed={1.8}
           roughness={0.15}
           metalness={0}
