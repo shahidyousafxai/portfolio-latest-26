@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 text-sm text-text-muted sm:flex-row sm:justify-between">
-        <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Shahid Bahadur. All rights reserved.</p>
         <div className="flex items-center gap-4">
           {socials.map(({ icon: Icon, href, label }) => (
             <a

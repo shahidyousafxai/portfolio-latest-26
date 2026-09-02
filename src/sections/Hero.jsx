@@ -24,7 +24,7 @@ export default function Hero() {
         className="relative z-10 mx-auto max-w-6xl px-6"
       >
         <motion.p variants={fadeUp} className="mb-4 text-sm font-medium uppercase tracking-widest text-accent-soft">
-          Hi, I'm Your Name
+          Hi, I'm Shahid Bahadur
         </motion.p>
         <motion.h1
           variants={fadeUp}
