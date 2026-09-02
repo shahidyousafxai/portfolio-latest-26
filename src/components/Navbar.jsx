@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { socials } from '../data/socials'
+import Logo from './Logo'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -17,22 +18,22 @@ function MenuToggle({ isOpen, onClick }) {
       type="button"
       aria-label="Toggle menu"
       onClick={onClick}
-      className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden"
+      className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
     >
       <motion.span
         animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 7 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="h-[2px] w-6 rounded-full bg-heading"
+        className="h-0.5 w-6 rounded-full bg-heading"
       />
       <motion.span
         animate={{ opacity: isOpen ? 0 : 1 }}
         transition={{ duration: 0.2 }}
-        className="h-[2px] w-6 rounded-full bg-heading"
+        className="h-0.5 w-6 rounded-full bg-heading"
       />
       <motion.span
         animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -7 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="h-[2px] w-6 rounded-full bg-heading"
+        className="h-0.5 w-6 rounded-full bg-heading"
       />
     </button>
   )
@@ -40,6 +41,7 @@ function MenuToggle({ isOpen, onClick }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [hovered, setHovered] = useState(null)
 
   return (
     <>
@@ -50,13 +52,34 @@ export default function Navbar() {
         className="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-bg/70 backdrop-blur-md"
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="font-semibold tracking-tight text-heading">
-            Shahid Bahadur
-          </a>
-          <ul className="hidden items-center gap-6 text-sm text-text-muted md:flex lg:gap-8">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-heading">
+          <Logo />
+          <ul
+            onMouseLeave={() => setHovered(null)}
+            className="hidden items-center gap-1 font-mono text-sm text-text-muted md:flex"
+          >
+            {links.map((link, index) => (
+              <li key={link.href} className="relative">
+                {hovered === link.href && (
+                  <motion.span
+                    layoutId="nav-hover-pill"
+                    transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                    className="absolute inset-0 rounded-full border border-accent/40 bg-accent-bg"
+                  />
+                )}
+                <a
+                  href={link.href}
+                  onMouseEnter={() => setHovered(link.href)}
+                  className={`relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 transition-colors ${
+                    hovered === link.href ? 'text-heading' : ''
+                  }`}
+                >
+                  <span
+                    className={`text-xs text-accent-soft transition-opacity duration-200 ${
+                      hovered === link.href ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                   {link.label}
                 </a>
               </li>
