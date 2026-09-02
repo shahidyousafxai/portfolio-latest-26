@@ -1,23 +1,27 @@
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
-import HeroScene from '../components/HeroScene'
+import { lazy, Suspense } from 'react'
 import { fadeUp, stagger } from '../lib/animations'
+
+const HeroScene = lazy(() => import('../components/HeroScene'))
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden pt-24"
+      className="relative isolate flex min-h-screen items-center overflow-hidden pt-24"
     >
-      <div className="absolute inset-0 -z-10 opacity-80">
-        <HeroScene />
+      <div className="pointer-events-none absolute inset-0 opacity-90">
+        <Suspense fallback={null}>
+          <HeroScene />
+        </Suspense>
       </div>
 
       <motion.div
         variants={stagger}
         initial="hidden"
         animate="show"
-        className="mx-auto max-w-6xl px-6"
+        className="relative z-10 mx-auto max-w-6xl px-6"
       >
         <motion.p variants={fadeUp} className="mb-4 text-sm font-medium uppercase tracking-widest text-accent-soft">
           Hi, I'm Your Name
@@ -54,7 +58,7 @@ export default function Hero() {
         aria-label="Scroll to about section"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-text-muted"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-text-muted"
       >
         <ArrowDown size={22} />
       </motion.a>

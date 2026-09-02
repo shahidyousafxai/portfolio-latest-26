@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Github } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { GithubIcon } from '../components/icons'
 import SectionHeading from '../components/SectionHeading'
 import { projects } from '../data/projects'
 import { fadeUp, stagger } from '../lib/animations'
@@ -46,7 +47,7 @@ export default function Projects() {
                 href={project.repo}
                 className="inline-flex items-center gap-1 text-text-muted transition-colors hover:text-accent-soft"
               >
-                <Github size={16} /> Code
+                <GithubIcon size={16} /> Code
               </a>
             </div>
           </motion.article>
