@@ -6,7 +6,7 @@ import { fadeUp, stagger } from '../lib/animations'
 export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="Skills" title="What I work with" />
+      <SectionHeading eyebrow="Skills" title="What I work with" index="04" />
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -18,7 +18,7 @@ export default function Skills() {
           <motion.div
             key={group.category}
             variants={fadeUp}
-            className="rounded-2xl border border-border bg-surface p-6"
+            className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10"
           >
             <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-soft">
               {group.category}
@@ -33,7 +33,7 @@ export default function Skills() {
           </motion.div>
         ))}
 
-        <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6">
+        <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10">
           <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-soft">
             Spoken Languages
           </p>

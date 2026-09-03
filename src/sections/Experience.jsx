@@ -6,7 +6,7 @@ import { fadeUp, stagger } from '../lib/animations'
 export default function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="Experience" title="Where I've worked" />
+      <SectionHeading eyebrow="Experience" title="Where I've worked" index="02" />
       <motion.div
         variants={stagger}
         initial="hidden"

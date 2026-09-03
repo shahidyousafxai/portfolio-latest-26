@@ -6,7 +6,7 @@ import { fadeUp, stagger } from '../lib/animations'
 export default function Education() {
   return (
     <section id="education" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="Education" title="Academic background" />
+      <SectionHeading eyebrow="Education" title="Academic background" index="03" />
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -18,7 +18,7 @@ export default function Education() {
           <motion.div
             key={item.degree}
             variants={fadeUp}
-            className="rounded-2xl border border-border bg-surface p-6"
+            className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10"
           >
             <p className="text-sm font-medium uppercase tracking-widest text-accent-soft">{item.period}</p>
             <h3 className="mt-1 text-lg font-semibold text-heading">{item.degree}</h3>
@@ -27,7 +27,7 @@ export default function Education() {
           </motion.div>
         ))}
 
-        <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6">
+        <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10">
           <p className="text-sm font-medium uppercase tracking-widest text-accent-soft">Certifications</p>
           <ul className="mt-3 space-y-2">
             {certifications.map((cert) => (

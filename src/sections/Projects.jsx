@@ -6,7 +6,7 @@ import { fadeUp, stagger } from '../lib/animations'
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="Work" title="Selected projects" />
+      <SectionHeading eyebrow="Work" title="Selected projects" index="05" />
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -20,7 +20,7 @@ export default function Projects() {
             variants={fadeUp}
             whileHover={{ y: -6 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="flex flex-col rounded-2xl border border-border bg-surface p-6"
+            className="flex flex-col rounded-2xl border border-border bg-surface p-6 transition-shadow duration-300 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10"
           >
             <div className="flex items-center justify-between gap-2">
               <h3 className="text-lg font-semibold text-heading">{project.title}</h3>

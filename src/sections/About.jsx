@@ -5,7 +5,7 @@ import { fadeUp } from '../lib/animations'
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="About" title="A bit about me" />
+      <SectionHeading eyebrow="About" title="A bit about me" index="01" />
       <motion.p
         variants={fadeUp}
         initial="hidden"

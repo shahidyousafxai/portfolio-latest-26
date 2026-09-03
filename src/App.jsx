@@ -1,5 +1,6 @@
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import ScrollProgress from './components/ScrollProgress'
 import { useLenis } from './lib/useLenis'
 import About from './sections/About'
 import Contact from './sections/Contact'
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="text-text">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

@@ -34,7 +34,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading eyebrow="Contact" title="Let's work together" />
+      <SectionHeading eyebrow="Contact" title="Let's work together" index="06" />
       <motion.div
         variants={stagger}
         initial="hidden"
