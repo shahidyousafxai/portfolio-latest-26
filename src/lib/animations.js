@@ -14,3 +14,23 @@ export const fadeIn = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
 }
+
+export const popIn = {
+  hidden: { opacity: 0, scale: 0.7 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.35, ease: 'backOut' } },
+}
+
+export const tagStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05 } },
+}
+
+export const word = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+}
+
+export const wordStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.025 } },
+}

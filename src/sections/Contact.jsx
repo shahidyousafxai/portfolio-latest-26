@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import SectionHeading from '../components/SectionHeading'
 import { socials } from '../data/socials'
-import { fadeUp, stagger } from '../lib/animations'
+import { fadeUp, stagger, tagStagger } from '../lib/animations'
 
 export default function Contact() {
   const {
@@ -51,9 +51,15 @@ export default function Contact() {
             <MapPin size={18} className="text-accent-soft" />
             Lahore, Pakistan
           </div>
-          <ul className="flex flex-col gap-3">
+          <motion.ul
+            variants={tagStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.5 }}
+            className="flex flex-col gap-3"
+          >
             {socials.map(({ icon: Icon, href, label }) => (
-              <li key={label}>
+              <motion.li key={label} variants={fadeUp}>
                 <a
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
@@ -63,18 +69,18 @@ export default function Contact() {
                   <Icon size={18} className="text-accent-soft" />
                   {label}
                 </a>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </motion.div>
 
         <motion.form
-          variants={fadeUp}
+          variants={stagger}
           onSubmit={handleSubmit(onSubmit)}
           className="grid gap-5"
           noValidate
         >
-          <div className="grid gap-5 sm:grid-cols-2">
+          <motion.div variants={fadeUp} className="grid gap-5 sm:grid-cols-2">
             <div>
               <input
                 {...register('name', { required: 'Name is required' })}
@@ -99,8 +105,8 @@ export default function Contact() {
                 <p className="mt-1 text-xs text-red-400">{errors.email.message}</p>
               )}
             </div>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={fadeUp}>
             <textarea
               {...register('message', { required: 'Message is required' })}
               placeholder="Tell me about your project"
@@ -110,23 +116,34 @@ export default function Contact() {
             {errors.message && (
               <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>
             )}
-          </div>
-          <button
+          </motion.div>
+          <motion.button
+            variants={fadeUp}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105 disabled:opacity-60"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white disabled:opacity-60"
           >
             {isSubmitting ? 'Sending…' : 'Send message'} <Send size={16} />
-          </button>
+          </motion.button>
           {status === 'success' && (
-            <p className="text-sm text-emerald-400">
+            <motion.p
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-sm text-emerald-400"
+            >
               Thanks! Your message has been sent — I'll get back to you soon.
-            </p>
+            </motion.p>
           )}
           {status === 'error' && (
-            <p className="text-sm text-red-400">
+            <motion.p
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-sm text-red-400"
+            >
               Something went wrong. Please try again or email me directly.
-            </p>
+            </motion.p>
           )}
         </motion.form>
       </motion.div>

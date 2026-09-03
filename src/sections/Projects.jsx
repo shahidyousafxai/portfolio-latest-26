@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import { projects } from '../data/projects'
-import { fadeUp, stagger } from '../lib/animations'
+import { fadeUp, popIn, stagger, tagStagger } from '../lib/animations'
 
 export default function Projects() {
   return (
@@ -27,16 +27,23 @@ export default function Projects() {
               <span className="shrink-0 text-xs text-text-muted">{project.period}</span>
             </div>
             <p className="mt-2 flex-1 text-sm text-text-muted">{project.description}</p>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <motion.ul
+              variants={tagStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.5 }}
+              className="mt-4 flex flex-wrap gap-2"
+            >
               {project.tags.map((tag) => (
-                <li
+                <motion.li
                   key={tag}
+                  variants={popIn}
                   className="rounded-full bg-accent-bg px-3 py-1 text-xs text-accent-soft"
                 >
                   {tag}
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.article>
         ))}
       </motion.div>
