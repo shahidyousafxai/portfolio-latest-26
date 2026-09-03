@@ -21,7 +21,7 @@ export default function Hero() {
         variants={stagger}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto max-w-6xl px-6"
+        className="relative z-10 mx-auto w-full max-w-6xl px-6"
       >
         <motion.p variants={fadeUp} className="mb-4 text-sm font-medium uppercase tracking-widest text-accent-soft">
           Hi, I'm Shahid Bahadur · Lahore, Pakistan
