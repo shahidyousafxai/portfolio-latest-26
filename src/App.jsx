@@ -1,3 +1,4 @@
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
@@ -27,6 +28,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   )
 }
