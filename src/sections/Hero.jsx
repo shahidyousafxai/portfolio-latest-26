@@ -24,18 +24,19 @@ export default function Hero() {
         className="relative z-10 mx-auto max-w-6xl px-6"
       >
         <motion.p variants={fadeUp} className="mb-4 text-sm font-medium uppercase tracking-widest text-accent-soft">
-          Hi, I'm Shahid Bahadur
+          Hi, I'm Shahid Bahadur · Lahore, Pakistan
         </motion.p>
         <motion.h1
           variants={fadeUp}
           className="max-w-3xl text-5xl font-semibold leading-tight text-heading sm:text-6xl"
         >
-          I build <span className="text-gradient">fast, animated</span> web
-          experiences.
+          Crafting <span className="text-gradient">pixel-perfect</span>,
+          high-performance UIs.
         </motion.h1>
         <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-text-muted">
-          Frontend developer specializing in React, motion design, and
-          performant interfaces.
+          Frontend Engineer specializing in React.js and Next.js — building
+          scalable, seamless user experiences that drive measurable business
+          growth.
         </motion.p>
         <motion.div variants={fadeUp} className="mt-10 flex items-center gap-4">
           <a

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
-import { languages, skillGroups } from '../data/skills'
+import { skillGroups, spokenLanguages } from '../data/skills'
 import { fadeUp, stagger } from '../lib/animations'
 
 export default function Skills() {
@@ -11,8 +11,8 @@ export default function Skills() {
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
         {skillGroups.map((group) => (
           <motion.div
@@ -34,10 +34,12 @@ export default function Skills() {
         ))}
 
         <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-soft">Languages</p>
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-soft">
+            Spoken Languages
+          </p>
           <ul className="flex flex-col gap-2">
-            {languages.map((lang) => (
-              <li key={lang.name} className="flex items-center justify-between text-sm text-text">
+            {spokenLanguages.map((lang) => (
+              <li key={lang.name} className="flex flex-col text-sm text-text sm:flex-row sm:items-center sm:justify-between">
                 <span>{lang.name}</span>
                 <span className="text-text-muted">{lang.level}</span>
               </li>

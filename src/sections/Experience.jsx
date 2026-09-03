@@ -22,7 +22,11 @@ export default function Experience() {
               {job.role} <span className="text-text-muted">· {job.company}</span>
             </h3>
             <p className="mt-1 text-sm text-text-muted">{job.location}</p>
-            <p className="mt-3 max-w-2xl text-text-muted">{job.description}</p>
+            <ul className="mt-3 max-w-2xl list-disc space-y-1.5 pl-4 text-text-muted marker:text-accent-soft">
+              {job.bullets.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
             <ul className="mt-4 flex flex-wrap gap-2">
               {job.tech.map((tag) => (
                 <li key={tag} className="rounded-full bg-accent-bg px-3 py-1 text-xs text-accent-soft">

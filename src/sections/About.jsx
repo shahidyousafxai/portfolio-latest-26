@@ -13,9 +13,11 @@ export default function About() {
         viewport={{ once: true, amount: 0.6 }}
         className="max-w-2xl text-lg leading-relaxed text-text-muted"
       >
-        Replace this with your own story: your background, what you focus
-        on, and what kind of projects you enjoy building. Keep it short and
-        specific — two or three sentences is plenty.
+        Crafting pixel-perfect, high-performance UIs with React.js and
+        Next.js. Proven in Agile environments as both builder and mentor —
+        boosting efficiency, reducing complexity, and delivering seamless
+        user experiences that drive measurable business growth. Aspiring to
+        lead frontend teams and build industry-defining products.
       </motion.p>
     </section>
   )

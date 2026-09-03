@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
-import { education } from '../data/education'
+import { certifications, education } from '../data/education'
 import { fadeUp, stagger } from '../lib/animations'
 
 export default function Education() {
@@ -26,6 +26,18 @@ export default function Education() {
             {item.description && <p className="mt-3 text-sm text-text-muted">{item.description}</p>}
           </motion.div>
         ))}
+
+        <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-surface p-6">
+          <p className="text-sm font-medium uppercase tracking-widest text-accent-soft">Certifications</p>
+          <ul className="mt-3 space-y-2">
+            {certifications.map((cert) => (
+              <li key={cert.name} className="flex flex-col text-sm text-text sm:flex-row sm:items-center sm:justify-between">
+                <span>{cert.name}</span>
+                <span className="text-text-muted">{cert.issuer}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </motion.div>
     </section>
   )

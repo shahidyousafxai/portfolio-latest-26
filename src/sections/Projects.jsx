@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
-import { GithubIcon } from '../components/icons'
 import SectionHeading from '../components/SectionHeading'
 import { projects } from '../data/projects'
 import { fadeUp, stagger } from '../lib/animations'
@@ -24,7 +22,10 @@ export default function Projects() {
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             className="flex flex-col rounded-2xl border border-border bg-surface p-6"
           >
-            <h3 className="text-lg font-semibold text-heading">{project.title}</h3>
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-lg font-semibold text-heading">{project.title}</h3>
+              <span className="shrink-0 text-xs text-text-muted">{project.period}</span>
+            </div>
             <p className="mt-2 flex-1 text-sm text-text-muted">{project.description}</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
@@ -36,20 +37,6 @@ export default function Projects() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex items-center gap-4 text-sm">
-              <a
-                href={project.link}
-                className="inline-flex items-center gap-1 text-heading transition-colors hover:text-accent-soft"
-              >
-                Live site <ArrowUpRight size={16} />
-              </a>
-              <a
-                href={project.repo}
-                className="inline-flex items-center gap-1 text-text-muted transition-colors hover:text-accent-soft"
-              >
-                <GithubIcon size={16} /> Code
-              </a>
-            </div>
           </motion.article>
         ))}
       </motion.div>
