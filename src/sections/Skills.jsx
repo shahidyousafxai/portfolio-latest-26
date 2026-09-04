@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import { skillGroups, spokenLanguages } from '../data/skills'
-import { fadeUp, popIn, stagger, tagStagger } from '../lib/animations'
+import { fadeUp, stagger } from '../lib/animations'
 
 export default function Skills() {
   return (
@@ -23,23 +23,13 @@ export default function Skills() {
             <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-soft">
               {group.category}
             </p>
-            <motion.ul
-              variants={tagStagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.5 }}
-              className="flex flex-wrap gap-2"
-            >
+            <ul className="flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <motion.li
-                  key={item}
-                  variants={popIn}
-                  className="rounded-full border border-border px-3 py-1 text-sm text-text"
-                >
+                <li key={item} className="rounded-full border border-border px-3 py-1 text-sm text-text">
                   {item}
-                </motion.li>
+                </li>
               ))}
-            </motion.ul>
+            </ul>
           </motion.div>
         ))}
 
